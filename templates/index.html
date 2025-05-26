@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ESP32 Control Panel</title>
+</head>
+<body>
+    <h1>ESP32 Web Interface</h1>
+    <p>Temperature: {{ temp }} °C</p>
+    <p>LED Status: {{ led_status }}</p>
+    <p>Last Flood Event: {{ flood_event }}</p>
+
+    <form method="POST">
+        <button name="on" type="submit">Turn LED ON</button>
+        <button name="off" type="submit">Turn LED OFF</button>
+    </form>
+
+    <form method="POST">
+        <input type="text" name="message" placeholder="Send message">
+        <button type="submit">Send Message</button>
+    </form>
+
+    <h2>Sent Messages:</h2>
+    <ul>
+    {% for msg in messages %}
+        <li>{{ msg }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
